@@ -32,11 +32,28 @@ Node.js supports two main module systems for importing code.
 - Uses `import` statements
 - Example: `import { readFileSync } from 'fs'`
 
+### 3. Blocking vs Non-Blocking Code (`blocking_and_unblocking_code/`)
+
+Node.js can handle operations in two ways: blocking (synchronous) and non-blocking (asynchronous).
+
+#### Blocking (Synchronous) Code:
+- Operations that block the execution thread until completed
+- Example: `fs.readFileSync(path, encoding)` - The program waits for the file to be read before continuing
+- Pros: Simple, predictable order
+- Cons: Can make the application unresponsive for I/O operations
+
+#### Non-Blocking (Asynchronous) Code:
+- Operations that don't block the execution thread
+- Uses callbacks, promises, or async/await
+- Example: `fs.readFile(path, encoding, callback)` - The program continues executing, and the callback is called when the operation completes
+- Pros: Better performance, doesn't block the event loop
+- Cons: More complex, potential callback hell
+
 ## Running the Examples
 
 Each folder contains an `index.js` file with example code. To run:
 
-1. Navigate to the folder: `cd fs_module` or `cd import_and_require`
+1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, or `cd blocking_and_unblocking_code`
 2. Run the script: `node index.js`
 
 ## Notes
