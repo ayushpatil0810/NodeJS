@@ -49,11 +49,26 @@ Node.js can handle operations in two ways: blocking (synchronous) and non-blocki
 - Pros: Better performance, doesn't block the event loop
 - Cons: More complex, potential callback hell
 
+### 4. Events Module (`events/`)
+
+Node.js has a built-in Events module that allows you to create, emit, and listen to custom events.
+
+#### Key Concepts:
+- **EventEmitter Class**: The core class for handling events. Create an instance with `new EventEmitter()`
+- **Listening to Events**: Use `.on(eventName, callback)` to register a listener for a specific event
+- **Emitting Events**: Use `.emit(eventName, ...args)` to trigger an event and call all registered listeners
+- **Error Events**: Special handling for 'error' events - if no listener is attached, Node.js will throw an error and exit
+
+#### Example Usage:
+- Create an EventEmitter instance
+- Attach listeners using `.on()`
+- Emit events using `.emit()` with optional arguments passed to listeners
+
 ## Running the Examples
 
 Each folder contains an `index.js` file with example code. To run:
 
-1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, or `cd blocking_and_unblocking_code`
+1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, or `cd events`
 2. Run the script: `node index.js`
 
 ## Notes
