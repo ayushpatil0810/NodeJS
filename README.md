@@ -81,12 +81,37 @@ A practical implementation of the Events module using class inheritance and the 
 3. Users can send messages - emits a 'message' event (only if the user is in the chat)
 4. Users can leave the chat - emits a 'leave' event (only if the user is in the chat)
 
+### 6. Buffer Module (`buffer/`)
+
+Buffers in Node.js are used to handle binary data directly. They represent fixed-size chunks of memory allocated outside the V8 JavaScript engine.
+
+#### Key Methods Learned:
+- **Creating Buffers**:
+  - `Buffer.alloc(size)` - Creates a zero-filled buffer of specified size (safe)
+  - `Buffer.allocUnsafe(size)` - Creates an uninitialized buffer (faster but may contain old data)
+  - `Buffer.from(data)` - Creates a buffer from a string, array, or another buffer
+
+- **Reading and Writing**:
+  - `buf.write(string)` - Writes a string to the buffer
+  - `buf.toString([encoding, start, end])` - Converts buffer to string with optional encoding and range
+  - Direct indexing: `buf[index]` - Access/modify individual bytes (values are 0-255)
+
+- **Manipulating Buffers**:
+  - `Buffer.concat([buf1, buf2, ...])` - Concatenates multiple buffers into one
+  - `buf.length` - Returns the size of the buffer in bytes
+
+#### Use Cases:
+- Working with binary data streams
+- File I/O operations
+- Network protocols
+- Encoding/decoding data
+
 ## Running the Examples
 
 Each folder contains an `index.js` file with example code. To run:
 
-1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, or `cd chatApp`
-2. Run the script: `node index.js`
+1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, `cd chatApp`, or `cd buffer`
+2. Run the script: `node index.js` (or `node bufferBasic.js` for the buffer folder)
 
 ## Notes
 
