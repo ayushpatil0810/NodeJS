@@ -106,12 +106,32 @@ Buffers in Node.js are used to handle binary data directly. They represent fixed
 - Network protocols
 - Encoding/decoding data
 
+### 7. HTTP Server (`http-server/`)
+
+Node.js has a built-in HTTP module that allows you to create web servers without external dependencies.
+
+#### Key Concepts:
+- **Creating a Server**: Use `http.createServer(callback)` where the callback receives `req` (request) and `res` (response) objects
+- **Request Object**: Contains information about the incoming HTTP request (method, URL, headers, etc.)
+- **Response Object**: Used to send data back to the client
+- **Response Methods**:
+  - `res.writeHead(statusCode, headers)` - Sets the response status and headers
+  - `res.end(data)` - Ends the response and sends data to the client
+- **Server Methods**:
+  - `server.listen(port, callback)` - Starts the server on a specified port
+
+#### Basic Server Flow:
+1. Create server with request handler
+2. Handle incoming requests in the callback
+3. Send response using response object methods
+4. Start server with `listen()`
+
 ## Running the Examples
 
 Each folder contains an `index.js` file with example code. To run:
 
-1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, `cd chatApp`, or `cd buffer`
-2. Run the script: `node index.js` (or `node bufferBasic.js` for the buffer folder)
+1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, `cd chatApp`, `cd buffer`, or `cd http-server`
+2. Run the script: `node index.js`
 
 ## Notes
 
