@@ -126,11 +126,60 @@ Node.js has a built-in HTTP module that allows you to create web servers without
 3. Send response using response object methods
 4. Start server with `listen()`
 
+### 8. Custom HTTP Server with Routing (`custom-http-server/`)
+
+Building on the basic HTTP server, this example demonstrates how to create a custom server with URL-based routing.
+
+#### Key Concepts:
+- **Request URL Handling**: Use `req.url` to determine which route the client is requesting
+- **Switch Statement**: A clean way to handle multiple routes
+- **HTTP Status Codes**:
+  - `200` - OK (successful response)
+  - `404` - Not Found (resource doesn't exist)
+- **Response Methods**: `res.writeHead()` to set status code, `res.end()` to send response body
+
+#### Routes Implemented:
+- `/` - Home page
+- `/about` - About page  
+- `/contact-us` - Contact page
+- Default (any other URL) - 404 Not Found
+
+#### Server Features:
+- Logs incoming requests with timestamps
+- Handles multiple routes without external routing libraries
+- Provides appropriate HTTP status codes
+
+### 9. Task-Based HTTP Server (`task_basic_server/`)
+
+A practical implementation of an HTTP server that handles different HTTP methods and routes, with request logging.
+
+#### Task Requirements:
+- **GET /**: Return a simple hello message
+- **GET /contact-us**: Return contact details (email and phone)
+- **POST /tweet**: Simulate creating a tweet and return success acknowledgment
+- **GET /tweet**: Return all tweets (simulated)
+- **Request Logging**: Log all incoming requests with timestamps to `log.txt`
+
+#### Key Concepts Demonstrated:
+- **HTTP Methods**: Handling GET and POST requests differently
+- **Nested Routing**: Using switch statements for both method and path
+- **File Logging**: Using `fs.appendFileSync()` to log requests to a file
+- **Response Status Codes**:
+  - `200` - OK (successful GET)
+  - `201` - Created (successful POST)
+  - `404` - Not Found
+- **Request Properties**: Accessing `req.method` and `req.url`
+
+#### Implementation Features:
+- Logs every request with timestamp, method, and path
+- Handles multiple HTTP methods in a single server
+- Simulates database operations for tweet creation and retrieval
+
 ## Running the Examples
 
 Each folder contains an `index.js` file with example code. To run:
 
-1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, `cd chatApp`, `cd buffer`, or `cd http-server`
+1. Navigate to the folder: `cd fs_module`, `cd import_and_require`, `cd blocking_and_unblocking_code`, `cd events`, `cd chatApp`, `cd buffer`, `cd http-server`, `cd custom-http-server`, or `cd task_basic_server`
 2. Run the script: `node index.js`
 
 ## Notes
